@@ -1,0 +1,6 @@
+{
+  "name": "Gestion des Taxis — Commune Urbaine d’Antananarivo",
+  "description": "Application municipale de centralisation, gestion, vérification réglementaire et contrôle des taxis en service à Antananarivo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

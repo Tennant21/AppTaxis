@@ -1,0 +1,376 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Palette principale : bleu institutionnel, jaune chaleureux et fonds clairs */
+  --color-primary: #174EA6;
+  --color-primary-dark: #123B72;
+  --color-primary-light: #D8E7FF;
+  --color-accent: #F4C21B;
+  --color-canvas: #EAF0FA;
+  --color-surface: #FFFFFF;
+  --color-ink: #172B4D;
+  --color-ink-secondary: #52627A;
+  --color-ink-muted: #8290A5;
+  --color-border: #DCE4EF;
+  --color-success: #16835D;
+  --color-success-light: #E5F5EE;
+  --color-warning: #B7791F;
+  --color-warning-light: #FFF4D6;
+  --color-error: #C2413A;
+  --color-error-light: #FDEBE9;
+  --color-info: #2563A6;
+  --color-info-light: #E6F0FA;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body, #root {
+    min-height: 100%;
+    font-family: "Inter", Arial, sans-serif;
+  }
+  body {
+    margin: 0;
+    background: #F4F7FB;
+    color: #172B4D;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]),
+  a[href], select:not(:disabled) { cursor: pointer; }
+  button, input, select, textarea { font: inherit; }
+  button:focus-visible, a:focus-visible, input:focus-visible,
+  select:focus-visible, textarea:focus-visible {
+    outline: 3px solid rgb(23 78 166 / 22%);
+    outline-offset: 2px;
+  }
+  ::selection { background: #FBE7A6; color: #123B72; }
+}
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.plate-badge {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: .025em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Finition commune des surfaces pour garder une interface cohérente. */
+main { min-width: 0; }
+main section > div[class*="rounded-"][class*="bg-white"],
+main section > button[class*="rounded-"][class*="bg-white"] {
+  box-shadow: 0 2px 8px rgb(18 59 114 / 4%);
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+main section > button[class*="bg-white"]:hover {
+  border-color: rgb(23 78 166 / 35%);
+  box-shadow: 0 5px 16px rgb(18 59 114 / 8%);
+}
+input, select, textarea {
+  color: #172B4D;
+}
+input::placeholder, textarea::placeholder { color: #8290A5; }
+
+/* Défilement discret */
+* { scrollbar-width: thin; scrollbar-color: #C5D2E2 transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #C5D2E2; border-radius: 20px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+.animate-skeleton { animation: skeleton-pulse 1.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-skeleton { animation: none; }
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  aside, header, nav, .no-print { display: none !important; }
+  main { padding: 0 !important; margin: 0 !important; }
+  body { background: #FFFFFF !important; }
+}
+
+
+/* Identité visuelle renforcée : bleu institutionnel, jaune solaire et surfaces claires. */
+:root {
+  --taxi-blue: #174EA6;
+  --taxi-blue-deep: #123B72;
+  --taxi-yellow: #F4C21B;
+  --taxi-yellow-soft: #FFF0A8;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 92% 4%, rgb(244 197 66 / 13%), transparent 26rem),
+    radial-gradient(ellipse at 4% 36%, rgb(23 78 166 / 7%), transparent 30rem),
+    #F4F7FB;
+}
+
+/* Fond vivant derrière les pages, sans gêner les clics ni la lecture. */
+main {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+main::before,
+main::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(1px);
+}
+main::before {
+  width: 230px;
+  height: 230px;
+  right: -115px;
+  top: 115px;
+  background: rgb(244 197 66 / 12%);
+  animation: float-shape 13s ease-in-out infinite;
+}
+main::after {
+  width: 190px;
+  height: 190px;
+  left: -110px;
+  bottom: 8%;
+  background: rgb(23 78 166 / 8%);
+  animation: float-shape 16s ease-in-out infinite reverse;
+}
+
+/* Cartes : relief plus net, liseré coloré et mouvement discret au survol. */
+main section > div[class*="rounded-"][class*="bg-white"],
+main section > button[class*="rounded-"][class*="bg-white"],
+main section > div[class*="rounded-"][class*="border"] {
+  position: relative;
+  border-color: #D5E0EF;
+  box-shadow: 0 5px 18px rgb(18 59 114 / 6%);
+  transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s ease, border-color .24s ease;
+}
+main section > div[class*="rounded-"][class*="bg-white"]:hover,
+main section > button[class*="rounded-"][class*="bg-white"]:hover {
+  transform: translateY(-3px);
+  border-color: rgb(23 78 166 / 34%);
+  box-shadow: 0 12px 26px rgb(18 59 114 / 11%);
+}
+
+/* Les tableaux prennent une vraie présence bleue, avec une séparation jaune. */
+main table thead {
+  background: linear-gradient(105deg, #123B72, #174EA6);
+  color: #FFFFFF;
+}
+main table thead th {
+  color: #FFFFFF !important;
+  border-bottom: 3px solid #F4C542;
+  letter-spacing: .015em;
+}
+main table tbody tr {
+  transition: background-color .18s ease;
+}
+main table tbody tr:hover {
+  background-color: #EEF4FC;
+}
+main table tbody tr:nth-child(even) {
+  background-color: rgb(234 242 251 / 34%);
+}
+
+/* Boutons et champs : transitions plus fluides et focus bien visible. */
+button, a, input, select, textarea {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: .2s;
+  transition-timing-function: ease;
+}
+button[class*="bg-[#174EA6]"], button[class*="bg-[#123B72]"] {
+  box-shadow: 0 5px 13px rgb(23 78 166 / 18%);
+}
+button[class*="bg-[#174EA6]"]:hover,
+button[class*="bg-[#123B72]"]:hover {
+  box-shadow: 0 8px 18px rgb(23 78 166 / 25%);
+  transform: translateY(-1px);
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #174EA6 !important;
+  box-shadow: 0 0 0 4px rgb(244 197 66 / 22%) !important;
+}
+
+/* Palette des états non critiques : l'orange décoratif devient jaune. */
+.text-\[\#D97706\] { color: #A66A00 !important; }
+.bg-\[\#FEF3C7\], .bg-\[\#FFF4D6\] { background-color: #FFF1B8 !important; }
+
+/* Animations d'entrée sobres, compatibles avec les préférences système. */
+@keyframes float-shape {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(-16px, 18px, 0) rotate(8deg); }
+}
+@keyframes page-arrive {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+main > * {
+  animation: page-arrive .42s ease both;
+}
+main > *:nth-child(2) { animation-delay: .04s; }
+main > *:nth-child(3) { animation-delay: .08s; }
+main > *:nth-child(4) { animation-delay: .12s; }
+
+@media (prefers-reduced-motion: reduce) {
+  main > *, main::before, main::after { animation: none !important; }
+  main section > div[class*="rounded-"], main section > button[class*="rounded-"] { transition: none !important; }
+}
+
+.dashboard-welcome::after {
+  content: "";
+  position: absolute;
+  width: 270px;
+  height: 270px;
+  right: 8%;
+  top: -155px;
+  border: 34px solid rgb(244 197 66 / 18%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: welcome-orbit 18s linear infinite;
+}
+.dashboard-welcome::before {
+  content: "";
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  right: 28%;
+  bottom: -78px;
+  border: 18px solid rgb(255 255 255 / 10%);
+  border-radius: 30px;
+  transform: rotate(35deg);
+  pointer-events: none;
+}
+.dashboard-welcome > * { position: relative; z-index: 1; }
+@keyframes welcome-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-welcome::after { animation: none !important; }
+}
+
+/* Alternance de surfaces bleues et jaunes dans les indicateurs du tableau de bord. */
+main section[aria-label="Indicateurs clés"] > button:nth-child(odd) {
+  background: linear-gradient(145deg, #FFFFFF 55%, #FFF4D6 145%);
+  border-top: 3px solid #F4C542;
+}
+main section[aria-label="Indicateurs clés"] > button:nth-child(even) {
+  background: linear-gradient(145deg, #FFFFFF 55%, #EAF2FB 145%);
+  border-top: 3px solid #174EA6;
+}
+main section[aria-label="Indicateurs clés"] > button:hover {
+  background-color: #FFFFFF;
+}
+main section[aria-label="Indicateurs clés"] > button:nth-child(odd) > div:last-child {
+  background: #F4C542;
+}
+main section[aria-label="Indicateurs clés"] > button:nth-child(even) > div:last-child {
+  background: #DCEBFC;
+}
+
+/* Les titres de blocs sont soulignés d'un repère jaune très fin. */
+main h3 {
+  text-decoration-color: #F4C542;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+
+/* Identité bleu-jaune assumée : les deux couleurs structurent désormais les pages. */
+:root {
+  --taxi-blue: #174EA6;
+  --taxi-blue-deep: #123B72;
+  --taxi-blue-panel: #D8E7FF;
+  --taxi-blue-strong: #2365B8;
+  --taxi-yellow: #F4C21B;
+  --taxi-yellow-panel: #FFF0A8;
+  --taxi-yellow-soft: #FFF6D1;
+}
+
+body {
+  background: linear-gradient(125deg, #D8E7FF 0%, #EAF0FA 34%, #FFF0A8 68%, #FFF6D1 100%);
+  background-attachment: fixed;
+}
+
+/* Les zones de contenu alternent entre bleu clair et jaune clair au lieu du tout-blanc. */
+main section > div.rounded-\[12px\].bg-white,
+main section > div.rounded-xl.bg-white,
+main section > div.rounded-lg.bg-white {
+  background: #E4EEFF !important;
+  border-color: #AFC9F4 !important;
+}
+main section > div.rounded-\[12px\].bg-white:nth-of-type(even),
+main section > div.rounded-xl.bg-white:nth-of-type(even),
+main section > div.rounded-lg.bg-white:nth-of-type(even) {
+  background: #FFF0A8 !important;
+  border-color: #E9CB54 !important;
+}
+
+/* Les surfaces blanches restantes gardent un rôle de respiration, mais les fonds de page sont colorés. */
+main {
+  background: linear-gradient(145deg, rgb(216 231 255 / 48%), rgb(255 240 168 / 42%));
+  border-radius: 22px;
+}
+
+/* Barre supérieure bleue avec typographie blanche et liseré jaune. */
+header.sticky {
+  background: linear-gradient(100deg, #123B72 0%, #174EA6 72%, #2365B8 100%) !important;
+  color: #FFFFFF !important;
+  border-bottom: 5px solid #F4C21B !important;
+}
+header.sticky h1,
+header.sticky p { color: #FFFFFF !important; }
+header.sticky button { color: #FFFFFF; border-color: rgb(255 255 255 / 28%); }
+header.sticky button:hover { background: rgb(255 255 255 / 16%); }
+
+/* Blocs de formulaire et panneaux : contraste bleu/jaune plus visible. */
+main .bg-\[\#FFF3C4\] { background-color: #FFF0A8 !important; }
+main .bg-\[\#D8E7FF\] { background-color: #D8E7FF !important; }
+main .bg-\[\#E4EEFF\] { background-color: #E4EEFF !important; }
+main .bg-\[\#FFF0A8\] { background-color: #FFF0A8 !important; }
+
+/* Titres de tableaux et bandeaux d'information renforcés. */
+main table thead {
+  background: linear-gradient(100deg, #123B72, #174EA6) !important;
+}
+main table thead th { border-bottom: 4px solid #F4C21B !important; }
+main table tbody tr:nth-child(even) { background: #FFF6D1 !important; }
+main table tbody tr:nth-child(odd) { background: #EAF2FF !important; }
+main table tbody tr:hover { background: #FFE58A !important; }
+
+/* Contrôles et actions jaunes plus visibles, sans sacrifier la lisibilité. */
+button[class*="bg-[#F4C542]"], button[class*="bg-[#F4C21B]"],
+button[class*="bg-[#FFF4D6]"] {
+  background: #F4C21B !important;
+  color: #123B72 !important;
+  box-shadow: 0 5px 14px rgb(18 59 114 / 14%);
+}
+button[class*="bg-[#F4C542]"]:hover,
+button[class*="bg-[#F4C21B]"]:hover { background: #FFD84D !important; }
+
+/* Décor géométrique discret pour donner du rythme aux grandes surfaces. */
+main::before {
+  width: 300px; height: 300px;
+  right: -145px; top: 90px;
+  background: rgb(244 194 27 / 25%);
+  border: 24px solid rgb(23 78 166 / 12%);
+}
+main::after {
+  width: 250px; height: 250px;
+  left: -140px; bottom: 5%;
+  background: rgb(23 78 166 / 17%);
+  border: 20px solid rgb(244 194 27 / 24%);
+}
