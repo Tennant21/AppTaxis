@@ -109,7 +109,7 @@ export const LicencesView: React.FC<LicencesViewProps> = ({
         </Button>
       </div>
 
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)] flex flex-col sm:flex-row gap-3">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-4 shadow-[0_3px_12px_rgba(18,59,114,0.06)] flex flex-col sm:flex-row gap-3">
         <div className="flex-1">
           <SearchInput
             value={query}
@@ -146,11 +146,11 @@ export const LicencesView: React.FC<LicencesViewProps> = ({
           }}
         />
       ) : (
-        <div className="rounded-[12px] border border-[#DCE4EF] bg-[#FFF0A8] shadow-[0_1px_2px_rgba(0,0,0,0.05)] overflow-hidden">
+        <div className="rounded-[12px] border border-[#DCE4EF] bg-white shadow-[0_3px_12px_rgba(18,59,114,0.06)] overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-[#FFF3C4] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
+                <tr className="bg-[#F7F9FC] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
                   <th className="py-3.5 px-5">Licence</th>
                   <th className="py-3.5 px-4">Autorisation</th>
                   <th className="py-3.5 px-4">Taxi</th>
@@ -162,7 +162,7 @@ export const LicencesView: React.FC<LicencesViewProps> = ({
               </thead>
               <tbody className="divide-y divide-[#DCE4EF] text-[14px]">
                 {enriched.map((l) => (
-                  <tr key={l.id} className="h-[58px] hover:bg-[#D8E7FF]/55 transition-colors">
+                  <tr key={l.id} className="h-[58px] hover:bg-white/55 transition-colors">
                     <td className="px-5 font-semibold text-[#172B4D] tabular-nums whitespace-nowrap">
                       {l.licenceNumber}
                     </td>
@@ -174,7 +174,7 @@ export const LicencesView: React.FC<LicencesViewProps> = ({
                         <button
                           type="button"
                           onClick={() => onViewTaxi(l.taxi!.id)}
-                          className="plate-badge rounded-full border border-[#DCE4EF] bg-[#FFF3C4] px-2.5 py-0.5 text-[12px] text-[#174EA6] hover:border-[#174EA6]"
+                          className="plate-badge rounded-full border border-[#DCE4EF] bg-[#F7F9FC] px-2.5 py-0.5 text-[12px] text-[#174EA6] hover:border-[#174EA6]"
                         >
                           {l.taxi.plate}
                         </button>

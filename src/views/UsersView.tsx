@@ -116,7 +116,7 @@ export const UsersView: React.FC<UsersViewProps> = ({
         </div>
       )}
 
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-4 shadow-[0_3px_12px_rgba(18,59,114,0.06)]">
         <SearchInput
           value={query}
           onChange={setQuery}
@@ -124,11 +124,11 @@ export const UsersView: React.FC<UsersViewProps> = ({
         />
       </div>
 
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#FFF0A8] shadow-[0_1px_2px_rgba(0,0,0,0.05)] overflow-hidden">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white shadow-[0_3px_12px_rgba(18,59,114,0.06)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[#FFF3C4] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
+              <tr className="bg-[#F7F9FC] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
                 <th className="py-3.5 px-5">Nom</th>
                 <th className="py-3.5 px-4">Email</th>
                 <th className="py-3.5 px-4">Rôle</th>
@@ -139,7 +139,7 @@ export const UsersView: React.FC<UsersViewProps> = ({
             </thead>
             <tbody className="divide-y divide-[#DCE4EF] text-[14px]">
               {filtered.map((u) => (
-                <tr key={u.id} className="h-[58px] hover:bg-[#D8E7FF]/55 transition-colors">
+                <tr key={u.id} className="h-[58px] hover:bg-white/55 transition-colors">
                   <td className="px-5">
                     <div className="font-semibold text-[#172B4D]">
                       {u.firstName} {u.lastName}

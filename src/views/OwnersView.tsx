@@ -110,7 +110,7 @@ export const OwnersView: React.FC<OwnersViewProps> = ({
         </Button>
       </div>
 
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-4 shadow-[0_3px_12px_rgba(18,59,114,0.06)]">
         <SearchInput
           value={query}
           onChange={setQuery}
@@ -127,11 +127,11 @@ export const OwnersView: React.FC<OwnersViewProps> = ({
           onAction={() => setQuery('')}
         />
       ) : (
-        <div className="rounded-[12px] border border-[#DCE4EF] bg-[#FFF0A8] shadow-[0_1px_2px_rgba(0,0,0,0.05)] overflow-hidden">
+        <div className="rounded-[12px] border border-[#DCE4EF] bg-white shadow-[0_3px_12px_rgba(18,59,114,0.06)] overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-[#FFF3C4] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
+                <tr className="bg-[#F7F9FC] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
                   <th className="py-3.5 px-5">Propriétaire</th>
                   <th className="py-3.5 px-4">Téléphone</th>
                   <th className="py-3.5 px-4">CIN</th>
@@ -143,7 +143,7 @@ export const OwnersView: React.FC<OwnersViewProps> = ({
                 {filtered.map((o) => {
                   const ownedTaxis = db.taxis.filter((t) => t.ownerId === o.id);
                   return (
-                    <tr key={o.id} className="h-[58px] hover:bg-[#D8E7FF]/55 transition-colors">
+                    <tr key={o.id} className="h-[58px] hover:bg-white/55 transition-colors">
                       <td className="px-5">
                         <div className="font-semibold text-[#172B4D]">{o.fullName}</div>
                         <div className="text-[12px] text-[#52627A]">{o.address}</div>
@@ -164,7 +164,7 @@ export const OwnersView: React.FC<OwnersViewProps> = ({
                                 key={t.id}
                                 type="button"
                                 onClick={() => onViewTaxi(t.id)}
-                                className="plate-badge rounded-full border border-[#DCE4EF] bg-[#FFF3C4] px-2.5 py-0.5 text-[12px] text-[#174EA6] hover:border-[#174EA6]"
+                                className="plate-badge rounded-full border border-[#DCE4EF] bg-[#F7F9FC] px-2.5 py-0.5 text-[12px] text-[#174EA6] hover:border-[#174EA6]"
                               >
                                 {t.plate}
                               </button>

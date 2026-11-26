@@ -90,7 +90,7 @@ export const SettingsProfileView: React.FC<SettingsProfileViewProps> = ({
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Compte / Profil */}
-        <div className="lg:col-span-5 rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)] space-y-5">
+        <div className="lg:col-span-5 rounded-[12px] border border-[#DCE4EF] bg-white p-6 shadow-[0_3px_12px_rgba(18,59,114,0.06)] space-y-5">
           <div className="flex items-center justify-between border-b border-[#DCE4EF] pb-4">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#174EA6] text-[15px] font-bold text-white">
@@ -108,7 +108,7 @@ export const SettingsProfileView: React.FC<SettingsProfileViewProps> = ({
             </div>
           </div>
 
-          <dl className="space-y-2 text-[13px] bg-[#FFF3C4] rounded-[8px] p-3.5">
+          <dl className="space-y-2 text-[13px] bg-[#F7F9FC] rounded-[8px] p-3.5">
             <div className="flex justify-between gap-2">
               <dt className="text-[#52627A]">Email</dt>
               <dd className="font-medium text-[#172B4D]">{currentUser.email}</dd>
@@ -182,7 +182,7 @@ export const SettingsProfileView: React.FC<SettingsProfileViewProps> = ({
         </div>
 
         {/* Paramètres généraux, notifications, sécurité */}
-        <div className="lg:col-span-7 rounded-[12px] border border-[#DCE4EF] bg-[#FFF0A8] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)] space-y-6">
+        <div className="lg:col-span-7 rounded-[12px] border border-[#DCE4EF] bg-white p-6 shadow-[0_3px_12px_rgba(18,59,114,0.06)] space-y-6">
           <div className="flex items-center justify-between border-b border-[#DCE4EF] pb-4">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-[#174EA6]" aria-hidden="true" />

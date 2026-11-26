@@ -126,13 +126,13 @@ export const Layout: React.FC<LayoutProps> = ({
                 aria-current={active ? 'page' : undefined}
                 className={`relative w-full flex items-center gap-3 rounded-full px-4 py-2.5 text-[14px] font-medium transition-colors duration-150 ${
                   active
-                    ? 'bg-[#F4C542] text-[#123B72] font-semibold shadow-sm'
+                    ? 'bg-[#F2E307] text-[#123B72] font-semibold shadow-sm'
                     : 'text-white/80 hover:bg-white/10 hover:text-white'
                 } ${sidebarCollapsed ? 'justify-center px-2' : ''}`}
               >
                 {active && !sidebarCollapsed && (
                   <span
-                    className="absolute left-1.5 top-2.5 bottom-2.5 w-1 rounded-full bg-[#F4C542]"
+                    className="absolute left-1.5 top-2.5 bottom-2.5 w-1 rounded-full bg-[#F2E307]"
                     aria-hidden="true"
                   />
                 )}
@@ -187,7 +187,7 @@ export const Layout: React.FC<LayoutProps> = ({
                     onClick={() => handleNavClick(item.id)}
                     className={`w-full flex items-center gap-3 rounded-full px-3 py-3 text-[14px] font-medium ${
                       active
-                        ? 'bg-[#F4C542] text-[#123B72] font-semibold shadow-sm'
+                        ? 'bg-[#F2E307] text-[#123B72] font-semibold shadow-sm'
                         : 'text-[#52627A] hover:bg-[#EAF2FB]'
                     }`}
                   >
@@ -217,7 +217,7 @@ export const Layout: React.FC<LayoutProps> = ({
       {/* Main Column */}
       <div className="flex-1 min-w-0 flex flex-col min-h-screen">
         {/* Sticky Top Header */}
-        <header className="sticky top-0 z-30 h-[68px] bg-white/95 backdrop-blur-xl border-b-[3px] border-b-[#F4C542] shadow-[0_4px_18px_rgba(18,59,114,0.06)] px-4 md:px-6 flex items-center justify-between gap-4">
+        <header className="sticky top-0 z-30 h-[82px] bg-white/95 backdrop-blur-xl border-b-[3px] border-b-[#F4C542] shadow-[0_4px_18px_rgba(18,59,114,0.06)] px-4 md:px-6 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
             <button
               type="button"
@@ -260,11 +260,11 @@ export const Layout: React.FC<LayoutProps> = ({
                   setProfileOpen(false);
                 }}
                 aria-label={`Notifications (${unreadCount} non lues)`}
-                className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#DCE4EF] bg-white text-[#263B59] hover:bg-[#EAF2FB] hover:text-[#174EA6]"
+                className="relative inline-flex h-10 w-10 items-center justify-center border-0 bg-white text-[#F2E307] hover:bg-[#F7F9FC] hover:text-[#D8CC00]"
               >
                 <Bell className="h-5 w-5" aria-hidden="true" />
                 {unreadCount > 0 && (
-                  <span className="absolute -top-1 -right-1 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#F4C542] px-1 text-[11px] font-bold text-[#172B4D] tabular-nums border border-white">
+                  <span className="absolute -top-1 -right-1 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#F2E307] px-1 text-[11px] font-bold text-[#172B4D] tabular-nums border border-white">
                     {unreadCount}
                   </span>
                 )}
@@ -389,7 +389,7 @@ export const Layout: React.FC<LayoutProps> = ({
 
         {/* Mobile Bottom Navigation (5 items max) */}
         <nav
-          className="fixed bottom-0 inset-x-0 z-30 md:hidden bg-white border-t-2 border-t-[#F4C542] grid grid-cols-5 h-[62px]"
+          className="fixed bottom-0 inset-x-0 z-30 md:hidden bg-white border-t border-t-[#DCE4EF] grid grid-cols-5 h-[62px]"
           aria-label="Navigation inférieure"
         >
           {[

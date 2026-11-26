@@ -89,7 +89,7 @@ export const ReportsView: React.FC<{ db: AppDatabase }> = ({ db }) => {
       </div>
 
       {/* Filters */}
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)] grid grid-cols-1 sm:grid-cols-3 gap-4 no-print">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-4 shadow-[0_3px_12px_rgba(18,59,114,0.06)] grid grid-cols-1 sm:grid-cols-3 gap-4 no-print">
         <Select
           label="Période"
           value={periodFilter}
@@ -125,14 +125,14 @@ export const ReportsView: React.FC<{ db: AppDatabase }> = ({ db }) => {
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="rounded-[12px] border border-[#DCE4EF] bg-[#FFF0A8] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+        <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-6 shadow-[0_3px_12px_rgba(18,59,114,0.06)]">
           <h3 className="text-[18px] font-semibold text-[#172B4D] mb-4">
             Répartition par statut ({metrics.totalTaxis} taxis)
           </h3>
           <DonutStatusChart segments={metrics.statusBreakdown} total={metrics.totalTaxis} />
         </div>
 
-        <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+        <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-6 shadow-[0_3px_12px_rgba(18,59,114,0.06)]">
           <h3 className="text-[18px] font-semibold text-[#172B4D] mb-4">
             Contrôles & infractions mensuels
           </h3>
@@ -141,7 +141,7 @@ export const ReportsView: React.FC<{ db: AppDatabase }> = ({ db }) => {
       </div>
 
       {/* Zone Breakdown Table */}
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white overflow-hidden shadow-[0_3px_12px_rgba(18,59,114,0.06)]">
         <div className="px-6 py-4 border-b border-[#DCE4EF]">
           <h3 className="text-[18px] font-semibold text-[#172B4D]">
             Synthèse par zone géographique
@@ -150,7 +150,7 @@ export const ReportsView: React.FC<{ db: AppDatabase }> = ({ db }) => {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[#FFF3C4] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
+              <tr className="bg-[#F7F9FC] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
                 <th className="py-3 px-6">Zone</th>
                 <th className="py-3 px-4 text-right">Total taxis</th>
                 <th className="py-3 px-4 text-right">Autorisés</th>
@@ -162,7 +162,7 @@ export const ReportsView: React.FC<{ db: AppDatabase }> = ({ db }) => {
               {zoneBreakdown.map((row) => {
                 const rate = row.total > 0 ? Math.round((row.authorized / row.total) * 100) : 0;
                 return (
-                  <tr key={row.zone} className="hover:bg-[#D8E7FF]/45">
+                  <tr key={row.zone} className="hover:bg-white/45">
                     <td className="py-3.5 px-6 font-semibold text-[#172B4D]">{row.zone}</td>
                     <td className="py-3.5 px-4 text-right tabular-nums">{row.total}</td>
                     <td className="py-3.5 px-4 text-right tabular-nums text-[#16A34A] font-medium">

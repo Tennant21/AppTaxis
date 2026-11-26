@@ -129,7 +129,7 @@ export const InfractionsView: React.FC<InfractionsViewProps> = ({
         </div>
       </div>
 
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)] flex flex-col md:flex-row gap-3">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-4 shadow-[0_3px_12px_rgba(18,59,114,0.06)] flex flex-col md:flex-row gap-3">
         <div className="flex-1">
           <SearchInput
             value={query}
@@ -182,11 +182,11 @@ export const InfractionsView: React.FC<InfractionsViewProps> = ({
           }}
         />
       ) : (
-        <div className="rounded-[12px] border border-[#DCE4EF] bg-[#FFF0A8] shadow-[0_1px_2px_rgba(0,0,0,0.05)] overflow-hidden">
+        <div className="rounded-[12px] border border-[#DCE4EF] bg-white shadow-[0_3px_12px_rgba(18,59,114,0.06)] overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-[#FFF3C4] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
+                <tr className="bg-[#F7F9FC] border-b border-[#DCE4EF] text-[12px] font-semibold text-[#52627A]">
                   <th className="py-3.5 px-5">Date</th>
                   <th className="py-3.5 px-4">Taxi</th>
                   <th className="py-3.5 px-4">Chauffeur</th>
@@ -202,7 +202,7 @@ export const InfractionsView: React.FC<InfractionsViewProps> = ({
                   const taxi = taxiMap.get(inf.taxiId);
                   const driver = driverMap.get(inf.driverId);
                   return (
-                    <tr key={inf.id} className="hover:bg-[#D8E7FF]/55 transition-colors">
+                    <tr key={inf.id} className="hover:bg-white/55 transition-colors">
                       <td className="py-3.5 px-5 tabular-nums text-[13px] text-[#52627A] whitespace-nowrap">
                         {formatDateFR(inf.date)}
                       </td>
@@ -211,7 +211,7 @@ export const InfractionsView: React.FC<InfractionsViewProps> = ({
                           <button
                             type="button"
                             onClick={() => onViewTaxi(taxi.id)}
-                            className="plate-badge rounded-full border border-[#DCE4EF] bg-[#FFF3C4] px-2.5 py-0.5 text-[12px] text-[#174EA6] hover:border-[#174EA6]"
+                            className="plate-badge rounded-full border border-[#DCE4EF] bg-[#F7F9FC] px-2.5 py-0.5 text-[12px] text-[#174EA6] hover:border-[#174EA6]"
                           >
                             {taxi.plate}
                           </button>

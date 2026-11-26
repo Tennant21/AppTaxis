@@ -36,7 +36,7 @@ export const HistoryView: React.FC<HistoryViewProps> = ({ db, onViewTaxi }) => {
         </p>
       </div>
 
-      <div className="rounded-[12px] border border-[#DCE4EF] bg-[#E4EEFF] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)] flex flex-col sm:flex-row gap-3">
+      <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-4 shadow-[0_3px_12px_rgba(18,59,114,0.06)] flex flex-col sm:flex-row gap-3">
         <div className="flex-1">
           <SearchInput
             value={query}
@@ -76,7 +76,7 @@ export const HistoryView: React.FC<HistoryViewProps> = ({ db, onViewTaxi }) => {
           }}
         />
       ) : (
-        <div className="rounded-[12px] border border-[#DCE4EF] bg-[#FFF0A8] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+        <div className="rounded-[12px] border border-[#DCE4EF] bg-white p-6 shadow-[0_3px_12px_rgba(18,59,114,0.06)]">
           <ol className="relative border-l border-[#DCE4EF] ml-2.5 space-y-6">
             {filtered.map((ev) => (
               <li key={ev.id} className="ml-6">

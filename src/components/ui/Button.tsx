@@ -13,9 +13,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#174EA6] text-white hover:bg-[#123B72] active:bg-[#123B72] border border-transparent shadow-[0_1px_2px_rgba(0,0,0,0.05)]',
+    'bg-[#F2E307] text-[#123B72] hover:bg-[#F8EF55] active:bg-[#F2E307] border border-transparent shadow-[0_2px_7px_rgba(18,59,114,0.10)]',
   secondary:
-    'bg-white text-[#263B59] hover:bg-[#F7F9FC] active:bg-[#DCE4EF] border border-[#DCE4EF] shadow-[0_1px_2px_rgba(0,0,0,0.05)]',
+    'bg-white text-[#174EA6] hover:bg-[#F7F9FC] active:bg-[#EEF4FC] border border-[#DCE4EF] shadow-[0_1px_2px_rgba(0,0,0,0.05)]',
   outline:
     'bg-transparent text-[#174EA6] hover:bg-[#EAF2FB] active:bg-[#E0E7FF] border border-[#174EA6]',
   danger:
@@ -48,7 +48,11 @@ export const Button: React.FC<ButtonProps> = ({
       className={`inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap shrink-0 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#174EA6] disabled:opacity-50 disabled:cursor-not-allowed ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`}
       {...props}
     >
-      {loading ? <Loader2 className="h-4 w-4 animate-spin shrink-0" aria-hidden="true" /> : icon}
+      {loading ? (
+        <Loader2 className="h-4 w-4 animate-spin shrink-0" aria-hidden="true" />
+      ) : (
+        icon
+      )}
       {children}
     </button>
   );
